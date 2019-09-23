@@ -8,16 +8,6 @@ var moment = require("moment");
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 
-/*
-spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
-    if (err) {
-      return console.log('Error occurred: ' + err);
-    }
-   
-  console.log(data); 
-  });
-*/
-
 var command = process.argv[2]
 var search = process.argv.slice(3).join(" ");
 userInput(command, search);
@@ -60,8 +50,21 @@ function concertThis(search) {
   });  
 }
 
-function spotifyThis(search) {
 
+function spotifyThis(search) {
+  if (!search){
+    search= "The Sign";
+  }  
+  spotify.search({type: "track", query: search})
+    .then(function(res){
+      console.log("Artist Name/s: ", res.tracks.items[0].album.artists[0].name);
+      console.log("Song Name: ", res.tracks.items[0].name);
+      console.log("Link to song preview: ", res.tracks.items[0].external_urls.spotify);
+      console.log("Album: ", res.tracks.items[0].album.name);
+    })
+    .catch(function(error){
+      console.log(error)
+    })
 }
 
 function movieThis(search) {
