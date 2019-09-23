@@ -75,16 +75,14 @@ function movieThis(search) {
         console.log("It's on Netflix!")
         console.log("PS- you need to type in a movie title to get data for anything other than Mr. Nobody!")
       } else {
-        /* console.log the following
-        * Title of the movie.
-           * Year the movie came out.
-           * IMDB Rating of the movie.
-           * Rotten Tomatoes Rating of the movie.
-           * Country where the movie was produced.
-           * Language of the movie.
-           * Plot of the movie.
-           * Actors in the movie.
-        */
+        console.log("Title: ", res.data.Title);
+        console.log("Year: ", res.data.Year);
+        console.log("IMDB Rating: ", res.data.imdbRating);
+        console.log("Rotten Tomatoes Rating: ", res.data.Ratings[1].Value);
+        console.log("Country: ", res.data.Country);
+        console.log("Language: ", res.data.Language);
+        console.log("Plot: ", res.data.Plot);
+        console.log("Actors: ", res.data.Actors);
       }
     });
 }
