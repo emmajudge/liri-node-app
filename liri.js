@@ -88,5 +88,14 @@ function movieThis(search) {
 }
 
 function doThisTXT() {
-
+  fs.readFile("random.txt", "utf8", function(error, data){
+    if(error){
+      console.log(error)
+    }
+    var input=data.split(",");
+    command=input[0];
+    search=input[1]
+    userInput(command,search);
+    console.log(data)
+  })
 }
