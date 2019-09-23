@@ -1,15 +1,19 @@
 # liri-node-app
 
-##Search Result Examples
-Spotify API
-![Spotify Screenshot]("./screenshots/spotify.png")
+## Search Result Examples
 
-Bands in Town Artist Events API
-![Concert Screenshot]("./screenshots/concert.png")
+### Spotify API
+![Spotify Screenshot](./screenshots/spotify.png)
 
-IMDB API
-*Result when no search paramater is provided*
-![Concert Screenshot]("./screenshots/imdbBlank.png")
+### Bands in Town Artist Events API
+![Concert Screenshot](./screenshots/concert.png)
 
-*Result when valid search paramater is provided*
-![Concert Screenshot]("./screenshots/imdbQuery.png")
+### IMDB API
+#### *Result when no search paramater is provided*
+![Concert Screenshot](./screenshots/imdbBlank.png)
+
+#### *Result when valid search paramater is provided*
+![Concert Screenshot](./screenshots/imdbQuery.png)
+
+### Execute command from text file using fs npm package
+![TXT Screenshot](./screenshots/readFile.png)
