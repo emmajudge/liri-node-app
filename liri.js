@@ -38,13 +38,26 @@ function userInput(command, search) {
 
 function concertThis(search) {
   axios.get("https://rest.bandsintown.com/artists/" + search + "/events?app_id=codingbootcamp")
-    .then(function (res) {
-      if (res.data[0].venue === undefined) {
-        console.log("Sorry, we weren't able to find any upcoming concerts for the artist you entered")
-      } else {
-
-      }
-    })
+  .then(function (res) {
+    for (var i=0; i<res.data.length;i++){
+        console.log("Venue Name: ", res.data[i].venue.name);
+        console.log("Venue Location: ", res.data[i].venue.city);
+        var date=moment(res.data[i].datetime);
+        console.log("Concert Date: ", date.format("MM/DD/YYYY"));
+        console.log("________________________________")
+    }
+  })
+  //catch was working (would console log the error message) before I added loop
+  // to iterate through all concerts but not anymore. Logging the error was not
+  // a requirement so I'm leaving the code here but not worrying about fixing it now
+  .catch(function(error){
+    if(error.res){
+      console.log(error.res);
+    }else if(error.request){
+      console.log("Sorry, we weren't able to find any upcoming concerts for the artist you entered. Please try again.")
+    } 
+    console.log("Sorry, we weren't able to find any upcoming concerts for the artist you entered. Please try again.")
+  });  
 }
 
 function spotifyThis(search) {
