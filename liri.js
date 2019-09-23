@@ -12,6 +12,14 @@ var command = process.argv[2]
 var search = process.argv.slice(3).join(" ");
 userInput(command, search);
 
+fs.appendFile("log.txt", command + " " + search, function(err){
+  if(err){
+    console.log(err)
+  }else{
+    console.log("User input added to log.txt file!")
+  }
+})
+
 function userInput(command, search) {
   switch (command) {
     case "concert-this": concertThis(search);
@@ -65,7 +73,7 @@ function spotifyThis(search) {
     .catch(function(error){
       console.log(error)
     })
-}
+}             
 
 function movieThis(search) {
   axios.get("http://www.omdbapi.com/?t=" + search + "&apikey=8de1603b&s")
